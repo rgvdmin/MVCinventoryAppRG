@@ -179,5 +179,10 @@ namespace InventoryApp.Controllers
             return RedirectToAction("ViewInventories", "Inventories", new { storeId = id });
         }
 
+        public ActionResult ViewEmployee(int id)
+        {
+            return RedirectToAction("ViewEmployees", "Employees", new { storeId = id });
+        }
+
     }
 }

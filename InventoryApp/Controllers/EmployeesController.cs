@@ -41,6 +41,7 @@ namespace InventoryApp.Controllers
         {
             //Create a dropdown list
             ViewBag.LK_EmployeeTypes = db.LK_EmployeeTypes.ToList();
+            ViewBag.Store = db.Stores.ToList();
 
             return View();
         }
@@ -50,7 +51,7 @@ namespace InventoryApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,EmployeeID,LK_EmployeeTypesID,IsActive")] Employee employee)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,EmployeeID,LK_EmployeeTypesID,IsActive,StoreId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -67,6 +68,7 @@ namespace InventoryApp.Controllers
         {
             //Create a dropdown list
             ViewBag.LK_EmployeeTypes = db.LK_EmployeeTypes.ToList();
+            ViewBag.Store = db.Stores.ToList();
 
             if (id == null)
             {
@@ -85,7 +87,7 @@ namespace InventoryApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,EmployeeID,LK_EmployeeTypesID,IsActive")] Employee employee)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,EmployeeID,LK_EmployeeTypesID,IsActive,StoreId")] Employee employee)
         {
             if (ModelState.IsValid)
             {

@@ -71,7 +71,11 @@
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
             @Html.ActionLink("Add Inventory", "AddInventory", new { id = item.ID }) |
-            @Html.ActionLink("View Inventory", "ViewInventory", new { id = item.ID })
+            @Html.ActionLink("View Inventory", "ViewInventory", new { id = item.ID }) |
+
+            @*  This one isnt working correct i think i named it wrong or idk  *@
+
+            @Html.ActionLink("View Employees", "ViewEmployees", new { id = item.ID })
             @*  /Stores/AddInventory/3  *@
         </td>
     </tr>

@@ -35,6 +35,8 @@ namespace InventoryApp.Models
 
         public int NumReview { get; set; }
 
+        public decimal Rating { get; set; }
+
         [DisplayName("Active")]
         public bool IsActive { get; set; }
 

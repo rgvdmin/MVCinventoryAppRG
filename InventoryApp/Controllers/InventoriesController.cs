@@ -65,7 +65,7 @@ namespace InventoryApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,PictureUrl,Description,Sku,Qty,Stores,Price,IsActive,Manufacture")] Inventory inventory)
+        public ActionResult Create([Bind(Include = "ID,Name,PictureUrl,Description,Sku,Qty,Stores,Price,IsActive,Manufacture,Rating")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace InventoryApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,PictureUrl,Description,Sku,Qty,Price,Manufacture,IsActive")] Inventory inventory)
+        public ActionResult Edit([Bind(Include = "ID,Name,PictureUrl,Description,Sku,Qty,Stores,Price,IsActive,Manufacture,Rating")] Inventory inventory)
         {
             //Creating a second connection to eliminate any collision with the first database connection
             var store = 0;

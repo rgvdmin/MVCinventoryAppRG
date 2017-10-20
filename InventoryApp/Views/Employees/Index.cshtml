@@ -25,6 +25,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Lk_EmployeeTypes.Name)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreId)
+        </th>
         
         <th></th>
     </tr>
@@ -45,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Lk_EmployeeTypes.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Store.Name)
         </td>
         
         <td>

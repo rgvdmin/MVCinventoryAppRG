@@ -10,19 +10,30 @@ namespace InventoryApp.Models
     public class Employee
     {
        public int ID { get; set; }
-       public string FirstName { get; set; }
-       public string LastName { get; set; }
-       public int EmployeeID { get; set; }
-       public bool IsActive { get; set; }
+
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+
+        [DisplayName("Emp ID")]
+        public int EmployeeID { get; set; }
+
+        [DisplayName("Active")]
+        public bool IsActive { get; set; }
        
        [DisplayName("Role")] 
        public int LK_EmployeeTypesID { get; set; }
 
        [ForeignKey("LK_EmployeeTypesID")]
-       [DisplayName("Role")]
        public virtual LK_EmployeeTypes Lk_EmployeeTypes { get; set; }
 
+        [DisplayName("Store Name")]
+        // this is the name of the Var that will hold the value from Store
         public int StoreId { get; set; }
+
+        // this connects the name of StoreId to call Store object
         [ForeignKey("StoreId")]
         public virtual Store Store { get; set; }
 

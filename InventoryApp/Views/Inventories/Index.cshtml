@@ -6,6 +6,7 @@
 
 <h2>Index</h2>
 
+
 <p>
     @Html.ActionLink("Create New", "Create", new { storeId = ViewBag.StoreId })
 </p>
@@ -34,6 +35,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Manufacture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -69,6 +73,11 @@
             @Html.DisplayFor(modelItem => item.Manufacture)
         </th>
         <td>
+            <span class="stars">
+                @Html.DisplayFor(modelItem => item.Rating)
+            </span>
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
@@ -83,3 +92,28 @@
 }
 
 </table>
+@section Scripts {
+
+    <script type="text/javascript">
+
+        //this prepares the js to run
+        $(document).ready(function () {
+            // this expands the function of span.stars
+            $('span.stars').stars();
+        });
+        //this is the actual function of 'stars();'
+        $.fn.stars = function () {
+            return $(this).each(function () {
+
+                // gets the value of what 'this' is
+                var val = parseFloat($(this).html());
+                // Make sure that the value is in 0 - 5 range, multiply to get width
+                var size = Math.max(0, (Math.min(5, val))) * 16;
+                // Create stars holder
+                var $span = $('<span />').width(size);
+                // Replace the numerical value with stars
+                $(this).html($span);
+            });
+        }
+    </script>
+    }
