@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using InventoryApp.Data;
 using InventoryApp.Models;
+using InventoryApp.ViewModels;
 
 namespace InventoryApp.Controllers
 {
@@ -22,18 +23,26 @@ namespace InventoryApp.Controllers
         }
 
         // GET: Stores/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id)   
         {
+
+            EmployeeDetailsViewModel model = new EmployeeDetailsViewModel();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Store store = db.Stores.Find(id);
-            if (store == null)
+            //Store store = db.Stores.Find(id);
+
+            model.Store = db.Stores.Find(id);  //Find Stores
+            model.Inventories = db.Inventories.Where(x => x.Stores.ID == id).ToList();
+
+
+            if (model.Store == null)
             {
                 return HttpNotFound();
             }
-            return View(store);
+            return View(model);
         }
 
         // GET: Stores/Create

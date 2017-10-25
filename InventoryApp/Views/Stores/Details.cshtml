@@ -1,4 +1,4 @@
-﻿@model InventoryApp.Models.Store
+﻿@model InventoryApp.ViewModels.EmployeeDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -11,61 +11,95 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Store.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Store.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Store.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Store.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Store.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.Store.Address)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            @Html.DisplayNameFor(model => model.Store.IsActive)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IsActive)
+            @Html.DisplayFor(model => model.Store.IsActive)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Open)
+            @Html.DisplayNameFor(model => model.Store.Open)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Open)
+            @Html.DisplayFor(model => model.Store.Open)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Close)
+            @Html.DisplayNameFor(model => model.Store.Close)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Close)
+            @Html.DisplayFor(model => model.Store.Close)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Rating)
+            @Html.DisplayNameFor(model => model.Store.Rating)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Rating)
+            @Html.DisplayFor(model => model.Store.Rating)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Store.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<p>
+    @Html.ActionLink("Create New Item", "../Inventories/Create", new { StoreId = Model.Store.ID }) |
+    
+</p>
+
+<div>
+    @Html.Partial("_InventoryList", Model.Inventories)
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        //this prepares the js to run
+        $(document).ready(function () {
+            // this expands the function of span.stars
+            $('span.stars').stars();
+        });
+        //this is the actual function of 'stars();'
+        $.fn.stars = function () {
+            return $(this).each(function () {
+
+                // gets the value of what 'this' is
+                var val = parseFloat($(this).html());
+                // Make sure that the value is in 0 - 5 range, multiply to get width
+                var size = Math.max(0, (Math.min(5, val))) * 16;
+                // Create stars holder
+                var $span = $('<span />').width(size);
+                // Replace the numerical value with stars
+                $(this).html($span);
+            });
+        }
+    </script>
+}

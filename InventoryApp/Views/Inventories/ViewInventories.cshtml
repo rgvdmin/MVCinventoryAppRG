@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<InventoryApp.Models.Inventory>
 
 @{
+    
     ViewBag.Title = "Index";
 }
 
 
-<h2>Inventory for  @Html.DisplayFor(modelItem => modelItem.FirstOrDefault().Stores.Name)</h2>
+<h2>Inventory for  @storeName</h2>
 
 <table class="table">
     <tr>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using InventoryApp.Models;
 
 namespace InventoryApp.ViewModels
 {
@@ -22,6 +23,8 @@ namespace InventoryApp.ViewModels
 
         [DisplayName("Role")]
         public int Role { get; set; }
+
+        public Store Stores { get; set; }
 
 
     }

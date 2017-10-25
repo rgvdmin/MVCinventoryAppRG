@@ -264,6 +264,7 @@
     <Compile Include="Models\LK_EmployeeType.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EmployeeDetailsViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel.cs" />
@@ -440,6 +441,7 @@
     <Content Include="Views\Inventories\ViewInventories.cshtml" />
     <Content Include="Views\Employees\ViewEmployees.cshtml" />
     <Content Include="Views\Stores\ViewEmployees.cshtml" />
+    <Content Include="Views\Shared\_InventoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

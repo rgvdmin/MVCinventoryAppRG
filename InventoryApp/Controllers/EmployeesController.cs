@@ -124,6 +124,12 @@ namespace InventoryApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ViewEmployees(int storeId)
+        {
+            var model = db.Employees.Where(x => x.Store.ID == storeId).ToList();
+            return View("Index",model);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -132,5 +138,7 @@ namespace InventoryApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }

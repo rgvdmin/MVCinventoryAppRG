@@ -19,8 +19,12 @@ namespace InventoryApp.Controllers
         public ActionResult Index(int? storeId)
         {
             if (storeId > 0)
-            {
-                ViewBag.StoreId = storeId;
+            { 
+                
+                //if theres a store id provided , then we can use it to filter out the inventory list.
+
+                ViewBag.StoreId = storeId;  //We need to hold the storeId
+                                            //return View(db.Inventories.Where(x => x.IsActive == storeId).ToList());
 
                 return View(db.Inventories.Where(x => x.Stores.ID == storeId).ToList());
             }
@@ -50,9 +54,12 @@ namespace InventoryApp.Controllers
         {
             if (storeId > 0)
             {
+                var store = (int)storeId;
+
                 Inventory model = new Inventory();
                 model.Stores = new Store();
-                model.Stores.ID = (int)storeId;
+                model.Stores.ID = store;
+                model.Stores.Name = db.Stores.Where(x => x.ID == store).FirstOrDefault().Name;
                 return View(model);
             } else
             {
@@ -147,7 +154,9 @@ namespace InventoryApp.Controllers
 
         public ActionResult ViewInventories(int storeId)
         {
+
             ViewBag.StoreId = storeId;
+            
             return View(db.Inventories.Where(x => x.Stores.ID == storeId).ToList());
             
         }
