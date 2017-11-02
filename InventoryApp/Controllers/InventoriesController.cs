@@ -49,6 +49,8 @@ namespace InventoryApp.Controllers
             return View(inventory);
         }
 
+
+
         // GET: Inventories/Create
         public ActionResult Create(int? storeId)
         {
@@ -76,13 +78,33 @@ namespace InventoryApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                inventory.Stores = db.Stores.Where(x => x.ID == inventory.Stores.ID).FirstOrDefault();
+                try
+                {
+                    //Assign the store information to the inventory object
+                    inventory.Stores = db.Stores.Where(x => x.ID == inventory.Stores.ID).FirstOrDefault();
 
-                db.Inventories.Add(inventory);
-                db.SaveChanges();
+                    db.Inventories.Add(inventory);
+                    db.SaveChanges();
 
 
-                return RedirectToAction("Index", new { storeId = inventory.Stores.ID });
+                    return this.Json(new
+                    {
+                        EnableSuccess = true,
+                        SuccessTitle = "Success",
+                        SuccessMsg = "Success"
+                    });
+
+                    //return RedirectToAction("Index", new { storeId = inventory.Stores.Id });
+                }
+                catch
+                {
+                    return this.Json(new
+                    {
+                        EnableError = true,
+                        ErrorTitle = "Error",
+                        ErrorMsg = "Something goes wrong, please try again later"
+                    });
+                }
             }
 
             return View(inventory);

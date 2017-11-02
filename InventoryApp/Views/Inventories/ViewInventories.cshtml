@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<InventoryApp.Models.Inventory>
 
 @{
-    
+    var storeName = Model.FirstOrDefault().Stores.Name;
     ViewBag.Title = "Index";
 }
 
