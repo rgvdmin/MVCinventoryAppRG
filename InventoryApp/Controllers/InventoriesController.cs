@@ -178,6 +178,7 @@ namespace InventoryApp.Controllers
         {
 
             ViewBag.StoreId = storeId;
+            ViewBag.StoreName = db.Stores.Where(x => x.ID == storeId).FirstOrDefault().Name;
             
             return View(db.Inventories.Where(x => x.Stores.ID == storeId).ToList());
             
