@@ -9,9 +9,7 @@ namespace InventoryApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui-{version}.js", 
-                        "~/Scripts/jquery-ui-timepicker-addon.js"));
+                        "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -36,6 +34,21 @@ namespace InventoryApp
                 "~/Scripts/jquery.unobtrusive-ajax.js",
                 "~/Scripts/jquery.validate*",
                 "~/Scripts/jquery.validate.unobtrusive.js"));
+
+
+            // "~/Scripts/jquery-ui-timepicker-addon.js"
+
+            //Jquery-UI
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            "~/Scripts/jquery-ui-{version}.js",
+            "~/Scripts/jquery-ui.unobtrusive-{version}.js",
+            "~/Scripts/jquery-ui-timepicker-addon.js"));
+
+            //Theme-Base
+            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+            "~/Content/themes/base/jquery.ui.core.css",
+            "~/Content/themes/base/jquery.ui.datepicker.css",
+            "~/Content/themes/base/jquery.ui.theme.css"));
         }
     }
 }

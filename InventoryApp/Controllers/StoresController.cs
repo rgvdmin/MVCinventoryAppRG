@@ -47,7 +47,23 @@ namespace InventoryApp.Controllers
         }
 
 
-        [HttpGet]
+       //Adding a new actionresult to return a list of categories
+        public ActionResult SearchCategory(string term)
+        {
+ 
+ 
+             var result = db.Categories
+                 .Where(x => x.Name.StartsWith(term))
+                 .Select(x => new { label = x.Name, value = x.Id })
+                 .ToList();
+ 
+             //We must return a JSON String type value to 
+             //our JQUERYUI Request
+           return Json(result, JsonRequestBehavior.AllowGet);
+ 
+        }
+
+    [HttpGet]
         public async Task<ActionResult> GetPartialView(int Id)
         {
             var model = db.Inventories.Where(x => x.Stores.ID == Id).ToList(); //Find all inventories for a store
@@ -74,7 +90,7 @@ namespace InventoryApp.Controllers
         public ActionResult Create()
         {
             //Create DropdownList
-            ViewBag.EmployeeID = db.Employees.Where(x => x.IsActive == true).ToList();
+           // ViewBag.EmployeeID = db.Employees.Where(x => x.IsActive == true).ToList();
 
             return View();
         }
@@ -98,7 +114,7 @@ namespace InventoryApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateAjax([Bind(Include = "ID,Name,Description,Address,IsActive,OpenDate,Open,Close,Rating,EmployeeID")] Store store)
+        public ActionResult CreateAjax([Bind(Include = "ID,Name,Description,Address,IsActive,OpenDate,Open,Close,Rating,CategoryId")] Store store)
         {
             if (ModelState.IsValid)
             {

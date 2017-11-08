@@ -1,9 +1,3 @@
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.IO.Compression.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\VBCSCompiler.exe
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\ApplicationInsights.config
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\csc.exe
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\csc.exe.config
@@ -12,9 +6,13 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\csi.exe
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\csi.exe.config
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\csi.rsp
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -24,6 +22,7 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.Cons
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.Diagnostics.Process.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.IO.Compression.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.IO.FileSystem.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -46,10 +45,15 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\System.Xml.
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\vbc.exe
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\vbc.exe.config
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\vbc.rsp
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\VBCSCompiler.exe
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.dll.config
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.pdb
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\Antlr3.Runtime.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\EntityFramework.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\EntityFramework.SqlServer.dll
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\JQueryUIHelpers.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -70,6 +74,7 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\System.Web.WebPage
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\WebGrease.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\EntityFramework.xml
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\EntityFramework.SqlServer.xml
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\JQueryUIHelpers.xml
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\System.Web.Helpers.xml
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\System.Web.Mvc.xml
@@ -115,6 +120,4 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.pdb
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.csprojResolveAssemblyReference.cache
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.dll.config
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.dll
-C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\bin\InventoryApp.pdb
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.Migrations.AddedFKCategories.resources

@@ -31,9 +31,9 @@ namespace InventoryApp.Models
         [Required]
         public int Rating { get; set; }
 
-        //public int EmployeeID { get; set; } 
+        public int CategoryID { get; set; } 
 
-        //[ForeignKey("EmployeeID")]
-        //public virtual Employee Employee { get; set; }
+        [ForeignKey("CategoryID")]
+        public virtual StoreCategory Category { get; set; }
     }
 }
