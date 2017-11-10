@@ -10,10 +10,10 @@ namespace InventoryApp.Controllers
     public class DetailReportController : Controller
     {
         private InventoryContext db = new InventoryContext();
+
         // GET: DetailReport
         public ActionResult Index()
         {
-
             //Get a list of stores
             ViewBag.Stores = db.Stores.ToList();
 
@@ -24,6 +24,13 @@ namespace InventoryApp.Controllers
         {
             ViewBag.Stores = db.Stores.ToList();
 
+            return View();
+        }
+
+        public ActionResult EmployeeReport()
+        {
+            var DataSource = db.Employees.ToList();
+            ViewBag.datasource = DataSource;
             return View();
         }
     }

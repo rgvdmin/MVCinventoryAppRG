@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\InventoryApp",
-    "\\InventoryApp\\Controllers"
+    "\\InventoryApp\\App_Start",
+    "\\InventoryApp\\Models",
+    "\\InventoryApp\\Views",
+    "\\InventoryApp\\Views\\DetailReport"
   ],
-  "SelectedNode": "\\InventoryApp\\Controllers\\StoresController.cs",
+  "SelectedNode": "\\InventoryApp\\Models\\Store.cs",
   "PreviewInSolutionExplorer": false
 }
