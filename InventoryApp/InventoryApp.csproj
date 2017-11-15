@@ -856,6 +856,7 @@
     <Content Include="Views\Shared\_EmployeeList.cshtml" />
     <Content Include="Views\DetailReport\Employees.cshtml" />
     <Content Include="Views\DetailReport\EmployeeReport.cshtml" />
+    <Content Include="Views\DetailReport\InventoryPerStore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
