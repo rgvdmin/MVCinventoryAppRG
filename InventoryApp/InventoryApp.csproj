@@ -298,10 +298,15 @@
     <Compile Include="Migrations\201711080220178_AddedFKCategories.Designer.cs">
       <DependentUpon>201711080220178_AddedFKCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711211529086_AddedNews.cs" />
+    <Compile Include="Migrations\201711211529086_AddedNews.Designer.cs">
+      <DependentUpon>201711211529086_AddedNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\LK_EmployeeType.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\StoreCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -857,6 +862,8 @@
     <Content Include="Views\DetailReport\Employees.cshtml" />
     <Content Include="Views\DetailReport\EmployeeReport.cshtml" />
     <Content Include="Views\DetailReport\InventoryPerStore.cshtml" />
+    <Content Include="Views\Home\CreateNewPost.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -943,6 +950,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711080220178_AddedFKCategories.resx">
       <DependentUpon>201711080220178_AddedFKCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711211529086_AddedNews.resx">
+      <DependentUpon>201711211529086_AddedNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

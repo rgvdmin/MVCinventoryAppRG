@@ -36,6 +36,8 @@ namespace InventoryApp.Controllers
 
         public ActionResult InventoryPerStore()
         {
+
+            //This is the initial Grid
             var DataSourceStores = db.Stores.ToList();
 
             var DataSourceInventory = from Inventory in db.Inventories

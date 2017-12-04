@@ -9,6 +9,10 @@ using System.Web.Mvc;
 using InventoryApp.Data;
 using InventoryApp.Models;
 using System.Threading.Tasks;
+using Syncfusion.JavaScript.DataSources;
+using System.Collections;
+using Syncfusion.Linq;
+using Syncfusion.JavaScript;
 
 namespace InventoryApp.Controllers
 {
@@ -19,8 +23,78 @@ namespace InventoryApp.Controllers
         // GET: Employees
         public ActionResult Index()
         {
+
+
+            ViewBag.dataSourcePosition = (from employeeTypes in db.LK_EmployeeTypes
+                                          select new
+                                          {
+                                              text = employeeTypes.Name,
+                                              value = employeeTypes.Name
+                                          }).ToList();
+
+
+            
+            ViewBag.dataSourceStore = (from Store in db.Stores
+                                          select new
+                                          {
+                                              text = Store.Name,
+                                              value = Store.Name
+                                          }).ToList();
+
+
+
             return View(db.Employees.ToList());
         }
+
+        public ActionResult InlineEdit(Employee value)
+        {
+
+
+            Store store = new Store();
+            store = db.Stores.Where(x => x.Name == value.Store.Name).FirstOrDefault();
+
+            //lets assign the an instance of the class(object) positions
+            // to hold our value
+
+            value.Store = store;
+            value.StoreId = store.ID;
+
+            LK_EmployeeTypes employeeTypes = new LK_EmployeeTypes();
+            employeeTypes = db.LK_EmployeeTypes.Where(x => x.Name == value.Lk_EmployeeTypes.Name).FirstOrDefault();
+
+            //lets assign the an instance of the class(object) positions
+            // to hold our value
+
+            value.Lk_EmployeeTypes = employeeTypes;
+            value.LK_EmployeeTypesID = employeeTypes.ID;
+
+            db.Entry(value).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return Json(value, JsonRequestBehavior.AllowGet);
+        
+        }
+        public ActionResult InlineRemove(int key)
+        {
+            Employee employee = new Employee();
+
+            employee = db.Employees.Where(x => x.ID == key).FirstOrDefault();
+
+            db.Entry(employee).State = EntityState.Deleted;
+            db.SaveChanges();
+
+            return Json(key, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult InlineInsert(Employee value)
+        {
+            db.Entry(value).State = EntityState.Added;
+            db.SaveChanges();
+
+            return Json(value, JsonRequestBehavior.AllowGet);
+
+        }
+
 
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
@@ -143,6 +217,52 @@ namespace InventoryApp.Controllers
 
             return PartialView("_NoResultsFound");
         }
+
+
+        public class DataResult
+        {
+
+            public IEnumerable result { get; set; }
+            public int count { get; set; }
+
+        }
+
+        public ActionResult InlineDataSource(DataManager dataManager)
+        {
+
+            // Get the datasource
+            IEnumerable Datasource = db.Employees;
+
+            //IEnumerable Datasource = from Employees in db.Employees
+            //                         join Stores in db.Stores on Employees.StoreId equals Stores.ID
+            //                         select new
+            //                         {
+            //                             Store.
+            //                         };
+
+            //Create the Object
+            DataResult result = new DataResult();
+            DataOperations operation = new DataOperations();
+
+            //Populate the objects
+            result.result = Datasource;
+            result.count = result.result.AsQueryable().Count();
+
+            //Createing conditions to check if we are going to skip any records
+            if(dataManager.Skip > 0)
+            {
+                result.result = operation.PerformSkip(result.result, dataManager.Skip);
+            }
+
+            //Check if the user will be taking/removing any objects
+            if(dataManager.Take > 0)
+            {
+                result.result = operation.PerformTake(result.result, dataManager.Take);
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

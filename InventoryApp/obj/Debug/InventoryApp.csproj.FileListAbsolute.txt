@@ -140,3 +140,5 @@ C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.csproj.CoreCompileInputs.cache
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.dll
 C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.pdb
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.csprojResolveAssemblyReference.cache
+C:\Users\yungth0t\source\repos\Inventory-App\InventoryApp\obj\Debug\InventoryApp.Migrations.AddedNews.resources

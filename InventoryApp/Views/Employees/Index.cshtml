@@ -3,66 +3,156 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    Dictionary<string, object>
+        editButton = new Dictionary<string, object>
+            ();
+    editButton.Add("class", "btn-primary");
 }
+        <h2>Index</h2>
 
-<h2>Index</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lk_EmployeeTypes.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreId)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lk_EmployeeTypes.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Store.Name)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+       
+        @(Html.EJ().Grid<InventoryApp.Models.Employee>("FlatGrid")
+
+            .Datasource(dataSource => dataSource.URL("/Employees/InlineDataSource")
+                                      .UpdateURL("/Employees/InlineEdit")
+                                      .RemoveURL("/Employees/InlineRemove")
+                                      .InsertURL("/Employees/InlineInsert").Adaptor(AdaptorType.UrlAdaptor))
+            .AllowPaging()
+            .EditSettings(e => { e.AllowEditing().EditMode(EditMode.InlineForm).AllowDeleting().ShowDeleteConfirmDialog().AllowAdding(); })
+            .ToolbarSettings(toolbar =>
+            {
+                toolbar.ShowToolbar().ToolbarItems(items =>
+                {
+                    items.AddTool(ToolBarItems.Edit);
+                    items.AddTool(ToolBarItems.Delete);
+                    items.AddTool(ToolBarItems.Add);
+                });
+            })
+            .Columns(col =>
+            {
+                col.Field("ID").HeaderText("ID").IsPrimaryKey(true).Visible(false).Add();
+
+                col.Field("FirstName").HeaderText("First Name").Add();
+
+                col.Field("LastName").HeaderText("Last Name").Add();
+
+             
+
+                col.Field("Store.Name").HeaderText("Store Name").DataSource((IEnumerable<object>)ViewBag.dataSourceStore).EditType(EditingType.DropdownEdit).Add();
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lk_EmployeeTypes.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StoreId)
-        </th>
+                col.Field("Lk_EmployeeTypes.Name").HeaderText("Position Title").DataSource((IEnumerable<object>)ViewBag.dataSourcePosition).EditType(EditingType.DropdownEdit).Add();
+
+            }))
+            
+@*.ForeignKeyField("StoreId").ForeignKeyValue("Store.Name")*@
+
         
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lk_EmployeeTypes.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Store.Name)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@section Scripts {
+    <script>
 
+        function detailsButton(args) {
+            var grid = $("#FlatGrid").data("ejGrid");
+            var recordId = grid.getSelectedRecords()[0].Id;
+            Action("Details", recordId);
+        }
+
+        function editButton(args) {
+            var grid = $("#FlatGrid").data("ejGrid");
+            var recordId = grid.getSelectedRecords()[0].Id;
+            Action("Edit", recordId);
+            //console.log(JSON.stringify(grid.getSelectedRecords()));
+            //window.location.href = "/Employees/Edit/" + data;
+        }
+
+        function deleteButton(args) {
+            var grid = $("#FlatGrid").data("ejGrid");
+            var recordId = grid.getSelectedRecords()[0].Id;
+            Action("Delete", recordId);
+        }
+
+        function Action(actionType, recordId) {
+            var Action = "Employees";
+            /*switch (actionType) {
+                case "Edit":
+                    url = "/Edit/";
+                    break;
+                case "Details":
+                    url = "/Details/";
+                    break;
+                case "Delete":
+                    url = "/Delete/";
+                    break;
+                default:
+                    break;
+            }*/
+
+            window.location.href = "/" + Action + "/" + actionType + "/" + recordId;
+        }
+
+    </script>
 }
-
-</table>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
